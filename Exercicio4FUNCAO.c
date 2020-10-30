@@ -1,8 +1,8 @@
-/*Construir um algoritmo que tenha uma funÁ„o que calcule o cubo de um
-n˙mero inteiro qualquer de forma que esta possa ser usada para resolver os
-seguintes c·lculos que ser„o feitos no algoritmo principal
+/*Construir um algoritmo que tenha uma fun√ß√£o que calcule o cubo de um
+n√∫mero inteiro qualquer de forma que esta possa ser usada para resolver os
+seguintes c√°lculos que ser√£o feitos no algoritmo principal
  O volume de uma esfera: 4/3 R3
- E a equaÁ„o: x3 + y3 + 2*/
+ E a equa√ß√£o: x3 + y3 + 2*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,7 +15,7 @@ float N;
 int main() 
 {
 	float volumeEsfera, equacao, PI, y;
-
+	
 	printf("Digite o numero para o cubo:  ");
 	scanf_s("%f", &N);
 	
@@ -25,6 +25,11 @@ int main()
 	volumeEsfera = 4 * PI * cubo(N) / 3;
 
 	printf("O volume da esfera e:  %.2f\n\n", volumeEsfera);
+
+	N = 0;
+
+	printf("Digite o numero para o cubo:  ");
+	scanf_s("%f", &N);
 
 	printf("Digite o valor de Y para a equacao:  ");
 	scanf_s("%f", &y);
