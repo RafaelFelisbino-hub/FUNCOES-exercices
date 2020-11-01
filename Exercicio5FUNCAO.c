@@ -41,7 +41,7 @@ float cubo(float N)
 
 int diasVividos(int idade)
 {
-	int anos, dias = 0, meses = 0, ano1 = 0;
+	int anos, meses = 0, ano1 = 0;
 
 	printf("Digite sua idade em anos:  ");
 	scanf_s("%i", &idade);
