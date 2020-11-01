@@ -1,5 +1,5 @@
 /*Escreva um procedimento chamado AUMENTO que receba dois valores
-reais X e Y como par‚metros e aumente o valor de X em Y%.*/
+reais X e Y como par√¢metros e aumente o valor de X em Y%.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +21,7 @@ void aumento()
 	printf("Digite os valores de X e Y separados por espaco:  ");
 	scanf_s("%f %f", &x, &y);
 
-	aux = y * x / 100 + y;
+	aux = y * x / 100;
 
 	x =  x + aux;
 
