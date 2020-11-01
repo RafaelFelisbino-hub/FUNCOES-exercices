@@ -1,19 +1,19 @@
-/*Construir um algoritmo para cada caso, utilizando funções e reduzindo ao
-máximo o uso de variáveis globais:
-Solicitar ao usuário um número e exibir o seu cubo. Função deve receber o
-número e retornar o cubo correspondente.
-Solicitar ao usuário a idade (em anos ) e exibir o número de dias vividos até
-o último aniversário. Função deve receber a idade e retornar o número de
+/*Construir um algoritmo para cada caso, utilizando funÃ§Ãµes e reduzindo ao
+mÃ¡ximo o uso de variÃ¡veis globais:
+Solicitar ao usuÃ¡rio um nÃºmero e exibir o seu cubo. FunÃ§Ã£o deve receber o
+nÃºmero e retornar o cubo correspondente.
+Solicitar ao usuÃ¡rio a idade (em anos ) e exibir o nÃºmero de dias vividos atÃ©
+o Ãºltimo aniversÃ¡rio. FunÃ§Ã£o deve receber a idade e retornar o nÃºmero de
 dias vividos.*/
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 float cubo(float N);
 int diasVividos(int idade);
 
-
-float N = 0;
+float N = 0, dia = 0, mes = 0, ano = 0;
 int idade = 0;
 
 int main() 
@@ -41,12 +41,17 @@ float cubo(float N)
 
 int diasVividos(int idade)
 {
-	int anos;
+	int anos, dias = 0, meses = 0, ano1 = 0;
 
 	printf("Digite sua idade em anos:  ");
 	scanf_s("%i", &idade);
 
-	anos = idade * 365;
+	printf("Digite sua data de nascimento separado por barra 00/00/0000:  ");
+	scanf_s("%f/%f/%f", &dia, &mes, &ano);
+	
+	ano1 = idade * 365;
+	meses = mes * 30;
+	
+	anos = dia + meses + ano1;
 	return(anos);
 }
-
