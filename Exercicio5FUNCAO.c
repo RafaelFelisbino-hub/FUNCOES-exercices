@@ -13,8 +13,8 @@ dias vividos.*/
 float cubo(float N);
 int diasVividos(int idade);
 
-float N = 0, dia = 0, mes = 0, ano = 0;
-int idade = 0;
+float N = 0;
+int idade = 0, , dia = 0, mes = 0, ano = 0;
 
 int main() 
 {
