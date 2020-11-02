@@ -1,7 +1,7 @@
-/*A empresa de taxi aéreo Linhas Modernas necessita de um sistema para controle de frota. Serão armazenados: Dados da aeronave: Prefixo, Capacidade, Autonomia.
+/*A empresa de taxi aÃ©reo Linhas Modernas necessita de um sistema para controle de frota. SerÃ£o armazenados: Dados da aeronave: Prefixo, Capacidade, Autonomia.
 Dados dos Pilotos: Registro, Nome, Horas de Voo. Dados dos Clientes: CPF, Nome, Destino. 
-Dados do Voo: Número do voo, Prefixo aeronave, Registro do Piloto, Destino, CPF Cliente. 
-Criar uma função pra validar o CPF. Criar as funções separadas para armazenamento de dados. Atribuir uma funcionalidade para impressão de relatório de voo.*/
+Dados do Voo: NÃºmero do voo, Prefixo aeronave, Registro do Piloto, Destino, CPF Cliente. 
+Criar uma funÃ§Ã£o pra validar o CPF. Criar as funÃ§Ãµes separadas para armazenamento de dados. Atribuir uma funcionalidade para impressÃ£o de relatÃ³rio de voo.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,6 +29,7 @@ int main()
 	dadosDosClientes();
 	validadorDeCPF();
 	relatorioDeVoo();
+	system("pause");
 }
 
 void dadosDaAeronave()
