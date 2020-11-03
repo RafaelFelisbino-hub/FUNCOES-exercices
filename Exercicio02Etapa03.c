@@ -31,10 +31,10 @@ int main()
 	dadosDoPiloto();
 	dadosDosClientes();
 	validadorDeCPF();
-    system("cls");
+    	system("cls");
 	relatorioDeVoo();
-    printf("\n\n\n\n\n\n\n\n\n\n\n");
-    system("pause");
+    	printf("\n\n\n\n\n\n\n\n\n\n\n");
+    	system("pause");
 }
 
 void dadosDaAeronave()
