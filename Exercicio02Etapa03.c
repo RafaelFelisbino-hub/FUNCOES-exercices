@@ -5,6 +5,7 @@ Criar uma função pra validar o CPF. Criar as funções separadas para armazena
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <Windows.h>
 
 int prefixo, capacidade, registroPiloto, numeroDoVoo;
 float autonomia, horasDeVoo;
@@ -21,6 +22,8 @@ void dadosDoPiloto();
 void dadosDosClientes();
 void relatorioDeVoo();
 void validadorDeCPF();
+void gotoxy(int x, int y);
+
 
 int main() 
 {
@@ -28,8 +31,10 @@ int main()
 	dadosDoPiloto();
 	dadosDosClientes();
 	validadorDeCPF();
+    system("cls");
 	relatorioDeVoo();
-	system("pause");
+    printf("\n\n\n\n\n\n\n\n\n\n\n");
+    system("pause");
 }
 
 void dadosDaAeronave()
@@ -73,10 +78,108 @@ void dadosDosClientes()
 
 void relatorioDeVoo() 
 {
-	printf("\n\n\n");
-	printf("Segue abaixo o relatorio de voo:  ");
-	printf("\n");
-	printf("O numero de voo e %i. O prefixo da aeronave e %i. O registro do piloto e %i. O destino do cliente e %s e seu CPF e %s", numeroDoVoo, prefixo, registroPiloto, destino, cpf);
+    //RELATORIO DE VOO
+    gotoxy(29, 0); printf("%c", 218);
+    for (i = 30; i <= 60; i++)
+    {
+        gotoxy(i, 0); printf("%c", 196);
+    }
+    gotoxy(61, 0); printf("%c", 191);
+    gotoxy(29, 1); printf("%c", 179);
+    gotoxy(61, 1); printf("%c", 179);
+    gotoxy(29, 2); printf("%c", 192);
+    gotoxy(61, 2); printf("%c", 217);
+    for (i = 30; i <= 60; i++)
+    {
+        gotoxy(i, 2); printf("%c", 196);
+    }
+
+    //NUMERO DE VOO
+    gotoxy(0, 4); printf("%c", 218);
+    for (i = 1; i <= 28; i++)
+    {
+        gotoxy(i, 4); printf("%c", 196);
+    }
+    gotoxy(28, 4); printf("%c", 191);
+    gotoxy(28, 5); printf("%c", 179);
+    gotoxy(0, 5); printf("%c", 179);
+    gotoxy(0, 6); printf("%c", 192);
+    gotoxy(28, 6); printf("%c", 217);
+    for (i = 1; i <= 27; i++)
+    {
+        gotoxy(i, 6); printf("%c", 196);
+    }
+
+    //PREFIXO DA AERONAVE
+    gotoxy(29, 4); printf("%c", 218);
+    for (i = 30; i <= 57; i++)
+    {
+        gotoxy(i, 4); printf("%c", 196);
+    }
+    gotoxy(58, 4); printf("%c", 191);
+    gotoxy(29, 5); printf("%c", 179);
+    gotoxy(58, 5); printf("%c", 179);
+    gotoxy(29, 6); printf("%c", 192);
+    gotoxy(58, 6); printf("%c", 217);
+    for (i = 30; i <= 57; i++)
+    {
+        gotoxy(i, 6); printf("%c", 196);
+    }
+
+    //REGISTRO DO PILOTO
+    gotoxy(59, 4); printf("%c", 218);
+    for (i = 60; i <= 90; i++)
+    {
+        gotoxy(i, 4); printf("%c", 196);
+    }
+    gotoxy(120, 4); printf("%c", 191);
+    gotoxy(91, 5); printf("%c", 179);
+    gotoxy(59, 5); printf("%c", 179);
+    gotoxy(59, 6); printf("%c", 192);
+    gotoxy(91, 6); printf("%c", 217);
+    for (i = 60; i <= 90; i++)
+    {
+        gotoxy(i, 6); printf("%c", 196);
+    }
+
+    //DESTINO
+    gotoxy(0, 7); printf("%c", 218);
+    for (i = 1; i <= 28; i++)
+    {
+        gotoxy(i, 7); printf("%c", 196);
+    }
+    gotoxy(28, 7); printf("%c", 191);
+    gotoxy(28, 8); printf("%c", 179);
+    gotoxy(0, 8); printf("%c", 179);
+    gotoxy(0, 9); printf("%c", 192);
+    gotoxy(28, 9); printf("%c", 217);
+    for (i = 1; i <= 27; i++)
+    {
+        gotoxy(i, 9); printf("%c", 196);
+    }
+
+   //CPF CLIENTE
+    gotoxy(29, 7); printf("%c", 218);
+    for (i = 30; i <= 60; i++)
+    {
+        gotoxy(i, 7); printf("%c", 196);
+    }
+    gotoxy(61, 7); printf("%c", 191);
+    gotoxy(29, 8); printf("%c", 179);
+    gotoxy(61, 8); printf("%c", 179);
+    gotoxy(29, 9); printf("%c", 192);
+    gotoxy(61, 9); printf("%c", 217);
+    for (i = 30; i <= 60; i++)
+    {
+        gotoxy(i, 9); printf("%c", 196);
+    }
+    
+    gotoxy(38, 1); printf("RELATORIO DE VOO");
+    gotoxy(2, 5); printf("Numero do voo: %i", numeroDoVoo);
+    gotoxy(31, 5); printf("Prefixo Aeronave: %i", prefixo);
+    gotoxy(61, 5); printf("Registro Piloto: %i", registroPiloto);
+    gotoxy(2, 8); printf("Destino: %s", destino);
+    gotoxy(31, 8); printf("CPF do Cliente: %s", cpf); 
 }
 
 void validadorDeCPF()
@@ -114,4 +217,12 @@ void validadorDeCPF()
 			digito2 = 11 - result2;
 						
 	} while ((digito1 != icpf[9]) && (digito2 != icpf[10]));
+}
+
+void gotoxy(int x, int y)
+{
+	COORD coord;
+	coord.X = x;
+	coord.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
