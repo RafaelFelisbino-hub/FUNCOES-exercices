@@ -10,11 +10,9 @@ seguintes cálculos que serão feitos no algoritmo principal
 
 float cubo(float N);
 
-float N;
-
 int main() 
 {
-	float volumeEsfera, equacao, PI, y;
+	float volumeEsfera, equacao, PI, y, N;
 	
 	printf("Digite o numero para o cubo:  ");
 	scanf_s("%f", &N);
@@ -28,20 +26,20 @@ int main()
 
 	N = 0;
 
-	printf("Digite o numero para o cubo:  ");
+	printf("Digite o valor de X para a equacao:  ");
 	scanf_s("%f", &N);
 
 	printf("Digite o valor de Y para a equacao:  ");
 	scanf_s("%f", &y);
 
-	equacao = cubo(N) + pow(y, 3) + 2;
+	equacao = cubo(N) + cubo(y) + 2;
 
-	printf("O resultado da equacao e: %.2f", equacao);
+	printf("O resultado da equacao e: %.2f\n", equacao);
 }
 
 float cubo(float N)
 {
 	float resultado;
-	resultado = N * N * N;
+	resultado = pow(N,3);
 	return(resultado);
 }
