@@ -47,11 +47,11 @@ int diasVividos(int idade)
 	scanf_s("%i", &idade);
 
 	printf("Digite sua data de nascimento separado por barra 00/00/0000:  ");
-	scanf_s("%f/%f/%f", &dia, &mes, &ano);
-	
-	ano1 = idade * 365;
-	meses = mes * 30;
-	
+	scanf_s("%i/%i/%i", &dia, &mes, &ano);
+
+	ano1 = (2020 - ano) * 365;
+	meses = (11 - mes) * 30;
+
 	anos = dia + meses + ano1;
 	return(anos);
 }
