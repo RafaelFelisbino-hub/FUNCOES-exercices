@@ -1,17 +1,20 @@
-/* Algoritmo para sistema que fará a gestão de assentos disponíveis em um trem de passageiros.
-O trem possui 10 vagões e cada vagão possui 45 assentos disponíveis.
-Existem duas classes de passagem, a executiva do vagão 1 ao 5 e a econômica do vagão 6 ao 10.
-Você deverá criar um programa que solicite o nome do comprador da passagem e quantas passagens ele irá comprar de uma determinada classe.
-Após ele comprar, verificar se possui assentos disponíveis, se sim, ele poderá concretizar a compra e
-mostrar na tela quais são os assentos liberados para ele, se não, emitir um aviso que o trem está cheio.
-Para liberar os assentos, você deverá iniciar a venda de passagens pelo vagão 1 assento 1, após o vagão 1 estar preenchido, você deve começar a
-vender os assentos do vagão 2, e assim sucessivamente. Mas se a passagem for da classe econômica, você deverá iniciar do vagão 6. O comprador não
+CÃ“DIGO - RAFAEL FELISBINO
+LAYOUT - STELLA OLIVEIRA
+
+/* Algoritmo para sistema que farÃ¡ a gestÃ£o de assentos disponÃ­veis em um trem de passageiros.
+O trem possui 10 vagÃµes e cada vagÃ£o possui 45 assentos disponÃ­veis.
+Existem duas classes de passagem, a executiva do vagÃ£o 1 ao 5 e a econÃ´mica do vagÃ£o 6 ao 10.
+VocÃª deverÃ¡ criar um programa que solicite o nome do comprador da passagem e quantas passagens ele irÃ¡ comprar de uma determinada classe.
+ApÃ³s ele comprar, verificar se possui assentos disponÃ­veis, se sim, ele poderÃ¡ concretizar a compra e
+mostrar na tela quais sÃ£o os assentos liberados para ele, se nÃ£o, emitir um aviso que o trem estÃ¡ cheio.
+Para liberar os assentos, vocÃª deverÃ¡ iniciar a venda de passagens pelo vagÃ£o 1 assento 1, apÃ³s o vagÃ£o 1 estar preenchido, vocÃª deve comeÃ§ar a
+vender os assentos do vagÃ£o 2, e assim sucessivamente. Mas se a passagem for da classe econÃ´mica, vocÃª deverÃ¡ iniciar do vagÃ£o 6. O comprador nÃ£o
 pode escolher o assento que ele deseja.
 
-Criar um menu de opções onde poderá comprar a passagem, visualizar a quantidade total de passagens vendidas por classe,
-visualizar a quantidade de assentos disponíveis por vagão.
+Criar um menu de opÃ§Ãµes onde poderÃ¡ comprar a passagem, visualizar a quantidade total de passagens vendidas por classe,
+visualizar a quantidade de assentos disponÃ­veis por vagÃ£o.
 
-Criar uma interface amigável, utilize todos os recursos aprendidos até hoje nas aulas.*/
+Criar uma interface amigÃ¡vel, utilize todos os recursos aprendidos atÃ© hoje nas aulas.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -379,21 +382,21 @@ void cabecalho() {
 	cor(12);
 	int j = 0;
 
-	gotoxy(1, 1); printf("%c", 201);	// Canto superior esquerdo do cabeçalho
+	gotoxy(1, 1); printf("%c", 201);	// Canto superior esquerdo do cabeÃ§alho
 	for (j = 0; j < 58; j++) {
-		printf("%c", 205);				// Traço horizontal do cabeçalho
+		printf("%c", 205);				// TraÃ§o horizontal do cabeÃ§alho
 	}
-	printf("%c", 187);					// Canto superior direito do cabeçalho
+	printf("%c", 187);					// Canto superior direito do cabeÃ§alho
 
-	printf("\n%c", 186);				// Traço vertical esquerdo do cabeçalho
-	gotoxy(2, 22); printf("EMPRESA TREM GRAND ", 210);	// CABEÇALHO
-	gotoxy(2, 60); printf("%c", 186);	// Traço vertical direito do cabeçalho
+	printf("\n%c", 186);				// TraÃ§o vertical esquerdo do cabeÃ§alho
+	gotoxy(2, 22); printf("EMPRESA TREM GRAND ", 210);	// CABEÃ‡ALHO
+	gotoxy(2, 60); printf("%c", 186);	// TraÃ§o vertical direito do cabeÃ§alho
 
-	printf("\n%c", 200);				// Canto inferior esquerdo do cabeçalho
+	printf("\n%c", 200);				// Canto inferior esquerdo do cabeÃ§alho
 	for (j = 0; j < 58; j++) {
-		printf("%c", 205);				// Traço horizontal do cabeçalho
+		printf("%c", 205);				// TraÃ§o horizontal do cabeÃ§alho
 	}
-	gotoxy(3, 60); printf("%c", 188);	// Canto inferior direito do cabeçalho
+	gotoxy(3, 60); printf("%c", 188);	// Canto inferior direito do cabeÃ§alho
 }
 
 void tabelaAssentosDisponiveis() {
@@ -402,119 +405,119 @@ void tabelaAssentosDisponiveis() {
 
 	gotoxy(5, 1); printf("%c", 218);		// Canto superior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 191);					// Canto superior direito da tabela de dados
 
 	gotoxy(5, 29); printf("%c", 194);	// T para baixo
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 5)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 5)
 	gotoxy(6, 60); printf("%c", 179);
 
 	gotoxy(6, 29); printf("%c", 179);
 
-	gotoxy(7, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(7, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(7, 29); printf("%c", 197);	// +
-	gotoxy(7, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(7, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
 	gotoxy(8, 1); printf("%c", 179);
 	gotoxy(8, 29); printf("%c", 179);
 	gotoxy(8, 60); printf("%c", 179);
 
-	gotoxy(9, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(9, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(9, 29); printf("%c", 197);	// +
-	gotoxy(9, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(9, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 9)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 9)
 	gotoxy(10, 29); printf("%c", 179);
 	gotoxy(10, 60); printf("%c", 179);
 
-	gotoxy(11, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(11, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(11, 29); printf("%c", 197);	// +
-	gotoxy(11, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(11, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 11)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 11)
 	gotoxy(12, 29); printf("%c", 179);
 	gotoxy(12, 60); printf("%c", 179);
 
-	gotoxy(13, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(13, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(13, 29); printf("%c", 197);	// +
-	gotoxy(13, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(13, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 13)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 13)
 	gotoxy(14, 29); printf("%c", 179);
 	gotoxy(14, 60); printf("%c", 179);
 
-	gotoxy(15, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(15, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(15, 29); printf("%c", 197);	// +
-	gotoxy(15, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(15, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 15)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 15)
 	gotoxy(16, 29); printf("%c", 179);
 	gotoxy(16, 60); printf("%c", 179);
 
-	gotoxy(17, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(17, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(17, 29); printf("%c", 197);	// +
-	gotoxy(17, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(17, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 17)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 17)
 	gotoxy(18, 29); printf("%c", 179);
 	gotoxy(18, 60); printf("%c", 179);
 
-	gotoxy(19, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(19, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(19, 29); printf("%c", 197);	// +
-	gotoxy(19, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(19, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 19)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 19)
 	gotoxy(20, 29); printf("%c", 179);
 	gotoxy(20, 60); printf("%c", 179);
 
-	gotoxy(21, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(21, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(21, 29); printf("%c", 197);	// +
-	gotoxy(21, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(21, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 21)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 21)
 	gotoxy(22, 29); printf("%c", 179);
 	gotoxy(22, 60); printf("%c", 179);
 
-	gotoxy(23, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(23, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(23, 29); printf("%c", 197);	// +
-	gotoxy(23, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(23, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 23)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 23)
 	gotoxy(24, 29); printf("%c", 179);
 	gotoxy(24, 60); printf("%c", 179);
 
 	printf("\n%c", 192); 				// Canto inferior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 217); 					// Canto inferior direito da tabela de dados
 
@@ -527,28 +530,28 @@ void tabelaPassagensVendidas() {
 
 	gotoxy(4, 1); printf("%c", 218);		// Canto superior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 191);					// Canto superior direito da tabela de dados
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 5)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 5)
 	gotoxy(5, 60); printf("%c", 179);
 
 	gotoxy(7, 31); printf("%c", 179);
 	gotoxy(7, 60); printf("%c", 179);
 
-	gotoxy(6, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(6, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	gotoxy(6, 31); printf("%c", 194);	// T para baixo
-	gotoxy(6, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+	gotoxy(6, 60); printf("%c", 180);	// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 7)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 7)
 
 	printf("\n%c", 192); 				// Canto inferior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 217); 					// Canto inferior direito da tabela de dados
 
@@ -561,37 +564,37 @@ void tabelaComprar() {
 
 	gotoxy(4, 1); printf("%c", 218);		// Canto superior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 191);					// Canto superior direito da tabela de dados
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 5)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 5)
 	gotoxy(5, 60); printf("%c", 179);
 
-	gotoxy(6, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(6, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (i = 0; i < 58; i++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
-	printf("%c", 180);					// Traço vertical direito com linha no meio
+	printf("%c", 180);					// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 7)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 7)
 	gotoxy(7, 60); printf("%c", 179);
 
-	gotoxy(8, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(8, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (i = 0; i < 58; i++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
-	printf("%c", 180);					// Traço vertical direito com linha no meio
+	printf("%c", 180);					// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 9)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 9)
 	gotoxy(9, 60); printf("%c", 179);
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 10)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 10)
 	gotoxy(10, 60); printf("%c", 179);
 
 	printf("\n%c", 192); 				// Canto inferior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 217); 					// Canto inferior direito da tabela de dados	
 }
@@ -602,34 +605,34 @@ void tabelaMenu() {
 
 	gotoxy(4, 1); printf("%c", 218);		// Canto superior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 191);					// Canto superior direito da tabela de dados
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 5)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 5)
 	gotoxy(5, 60); printf("%c", 179);
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 6)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 6)
 	gotoxy(6, 60); printf("%c", 179);
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 7)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 7)
 	gotoxy(7, 60); printf("%c", 179);
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 8)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 8)
 	gotoxy(8, 60); printf("%c", 179);
 
-	gotoxy(9, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	gotoxy(9, 1); printf("%c", 195); 	// TraÃ§o vertical esquerdo com linha no meio
 	for (i = 0; i < 58; i++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
-	printf("%c", 180);					// Traço vertical direito com linha no meio
+	printf("%c", 180);					// TraÃ§o vertical direito com linha no meio
 
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 10)
+	printf("\n%c", 179);				// TraÃ§o vertical esquerdo da tabela de dados (linha 10)
 	gotoxy(10, 60); printf("%c", 179);
 
 	printf("\n%c", 192); 				// Canto inferior esquerdo da tabela de dados
 	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
+		printf("%c", 196);				// TraÃ§o horizontal da tabela de dados
 	}
 	printf("%c", 217); 					// Canto inferior direito da tabela de dados
 }
