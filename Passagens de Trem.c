@@ -1,6 +1,3 @@
-CÓDIGO - RAFAEL FELISBINO
-LAYOUT - STELLA OLIVEIRA
-
 /* Algoritmo para sistema que fará a gestão de assentos disponíveis em um trem de passageiros.
 O trem possui 10 vagões e cada vagão possui 45 assentos disponíveis.
 Existem duas classes de passagem, a executiva do vagão 1 ao 5 e a econômica do vagão 6 ao 10.
