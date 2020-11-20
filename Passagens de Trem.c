@@ -204,7 +204,7 @@ void cadastroTrem() {
 		if (op4 > 45) {
 
 			printf("\n\n\t\t"); cor(12); printf("Vag%co 2 da Classe Executiva:", 198);
-			for (i = pass1; i < op3; i++) {
+			for (i = pass1; i < op4; i++) {
 				if (pass2 == 45 || pass2 > 45)
 					break;
 				pass2++;
@@ -221,8 +221,8 @@ void cadastroTrem() {
 		for (i = 0; i < op2; i++) {
 			if (pass2 == 45 || pass2 > 45)
 				break;
-			vagao12 = vagao2 - passagem1[0];
 			pass2++;
+			vagao12 = vagao2 - pass2;
 			cor(15); printf("\n\t\t\tAssento %i", pass2);
 		}
 
@@ -245,8 +245,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass3 == 45 || pass3 > 45)
 				break;
-			vagao13 = vagao3 - passagem1[0];
 			pass3++;
+			vagao13 = vagao3 - pass3;
 			cor(15); printf("\n\t\t\tAssento %i", pass3);
 		}
 
@@ -269,8 +269,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass4 == 45 || pass4 > 45)
 				break;
-			vagao14 = vagao4 - passagem1[0];
 			pass4++;
+			vagao14 = vagao4 - pass4;
 			cor(15); printf("\n\t\t\tAssento %i", pass4);
 		}
 
@@ -293,8 +293,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass5 == 45 || pass5 > 45)
 				break;
-			vagao15 = vagao5 - passagem1[0];
 			pass5++;
+			vagao15 = vagao5 - pass5;
 			cor(15); printf("\n\t\t\tAssento %i", pass5);
 		}
 
@@ -317,8 +317,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass6 == 45 || pass6 > 45)
 				break;
-			vagao16 = vagao6 - passagem1[0];
 			pass6++;
+			vagao16 = vagao6 - pass6;
 			cor(15); printf("\n\t\t\tAssento %i", pass6);
 		}
 
@@ -341,8 +341,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass7 == 45 || pass7 > 45)
 				break;
-			vagao17 = vagao7 - passagem1[0];
 			pass7++;
+			vagao17 = vagao7 - pass7;
 			cor(15); printf("\n\t\t\tAssento %i", pass7);
 		}
 
@@ -365,8 +365,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass8 == 45 || pass8 > 45)
 				break;
-			vagao18 = vagao8 - passagem1[0];
 			pass8++;
+			vagao18 = vagao8 - pass8;
 			cor(15); printf("\n\t\t\tAssento %i", pass8);
 		}
 
@@ -389,8 +389,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass9 == 45 || pass9 > 45)
 				break;
-			vagao19 = vagao9 - passagem1[0];
 			pass9++;
+			vagao19 = vagao9 - pass9;
 			cor(15); printf("\n\t\t\tAssento %i", pass9);
 		}
 
@@ -400,6 +400,7 @@ void cadastroTrem() {
 				if (pass10 == 45 || pass10 > 45)
 					break;
 				pass10++;
+				vagao20 = vagao10 - pass10;
 				cor(15); printf("\n\t\t\tAssento %i", pass10);
 			}
 		}
@@ -412,8 +413,8 @@ void cadastroTrem() {
 		for (i = 0; i < op3; i++) {
 			if (pass10 == 45 || pass10 > 45)
 				break;
-			vagao20 = vagao10 - passagem1[0];
 			pass10++;
+			vagao20 = vagao10 - pass10;
 			cor(15); printf("\n\t\t\tAssento %i", pass10);
 		}
 		vagao10 -= passagem1[0];
