@@ -198,7 +198,7 @@ void cadastroTrem() {
 	{
 		cor(192); gotoxy(16, 2); printf("Valor a pagar:");
 		cor(15); gotoxy(16, 17); scanf_s("%f", &receberDinheiro);
-		while (receberDinheiro - passagem2) 
+		while (receberDinheiro < passagem2 || receberDinheiro < passagem)
 		{
 			cor(192); gotoxy(16, 2); printf("Valor a pagar:");
 			cor(15); gotoxy(16, 17); scanf_s("%f", &receberDinheiro);
