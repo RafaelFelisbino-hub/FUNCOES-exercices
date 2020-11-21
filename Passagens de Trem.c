@@ -42,7 +42,7 @@ void cor(int cor_letra);
 void gotoxy(int x, int y);
 void LayoutTremzim();
 void sistemaTroco();
-void consultaNumeroPassagem();
+void consultaClientes();
 void layoutConsultaPassageiro();
 
 int main() {
@@ -76,7 +76,7 @@ int main() {
 			system("cls");
 			break;
 		case 4:
-			consultaNumeroPassagem();
+			consultaClientes();
 			system("cls");
 			break;
 		}
@@ -198,6 +198,11 @@ void cadastroTrem() {
 	{
 		cor(192); gotoxy(16, 2); printf("Valor a pagar:");
 		cor(15); gotoxy(16, 17); scanf_s("%f", &receberDinheiro);
+		while (receberDinheiro - passagem2) 
+		{
+			cor(192); gotoxy(16, 2); printf("Valor a pagar:");
+			cor(15); gotoxy(16, 17); scanf_s("%f", &receberDinheiro);
+		}
 	}
 
 	op3 = 0;
@@ -869,12 +874,13 @@ void tabelaPassagensVendidas() {
 	cor(15); gotoxy(10, 39); printf("R$ = %.2f", cE);
 }
 
-void consultaNumeroPassagem()
+void consultaClientes()
 {
 	int  x = 0, inicio2 = 0;
 	inicio = 0;
 	for (i = 0; i < inicial; i++)
 	{
+		cor(12);
 		layoutConsultaPassageiro();
 		cor(15); gotoxy(5 + inicio, 10); printf("Nome: %s\n", passageiros[i]);
 		gotoxy(5+inicio, 30); printf("Comprou %i passagens", passagemFuncao[i]);
@@ -904,35 +910,35 @@ void consultaNumeroPassagem()
 		}
 	}*/
 
-	cor(192); gotoxy(1, 29); system("pause");
+	gotoxy(1, 29); system("pause");
 	system("cls");
 }
 
 void layoutConsultaPassageiro() 
 {
 	int i;
-	cor(12);
-	gotoxy(4 + inicio, 7); printf("%c", 218);
+	
+	gotoxy(4 + inicio, 7); printf("%c", 201);
 	for (i = 8; i <= 94; i++)
 	{
-		gotoxy(4 + inicio, i); printf("%c", 196);
+		gotoxy(4 + inicio, i); printf("%c", 205);
 	}
-	gotoxy(4 + inicio, 95); printf("%c", 191);
-	gotoxy(5 + inicio, 7); printf("%c", 179);
-	gotoxy(5 + inicio, 95); printf("%c", 179);
-	gotoxy(6 + inicio, 7); printf("%c", 192);
-	gotoxy(6 + inicio, 95); printf("%c", 217);
+	gotoxy(4 + inicio, 95); printf("%c", 187);
+	gotoxy(5 + inicio, 7); printf("%c", 186);
+	gotoxy(5 + inicio, 95); printf("%c", 186);
+	gotoxy(6 + inicio, 7); printf("%c", 200);
+	gotoxy(6 + inicio, 95); printf("%c", 188);
 	for (i = 8; i <= 94; i++)
 	{
-		gotoxy(6+inicio, i); printf("%c", 196);
+		gotoxy(6+inicio, i); printf("%c", 205);
 	}
-	gotoxy(4 + inicio, 29); printf("%c", 194);
-	gotoxy(4 + inicio, 51); printf("%c", 194);
-	gotoxy(4 + inicio, 72); printf("%c", 194);
-	gotoxy(6 + inicio, 29); printf("%c", 193);
-	gotoxy(6 + inicio, 51); printf("%c", 193);
-	gotoxy(6 + inicio, 72); printf("%c", 193);
-	gotoxy(5 + inicio, 29); printf("%c", 179);
-	gotoxy(5 + inicio, 51); printf("%c", 179);
-	gotoxy(5 + inicio, 72); printf("%c", 179);
+	gotoxy(4 + inicio, 29); printf("%c", 203);
+	gotoxy(4 + inicio, 51); printf("%c", 203);
+	gotoxy(4 + inicio, 72); printf("%c", 203);
+	gotoxy(6 + inicio, 29); printf("%c", 202);
+	gotoxy(6 + inicio, 51); printf("%c", 202);
+	gotoxy(6 + inicio, 72); printf("%c", 202);
+	gotoxy(5 + inicio, 29); printf("%c", 186);
+	gotoxy(5 + inicio, 51); printf("%c", 186);
+	gotoxy(5 + inicio, 72); printf("%c", 186);
 }
