@@ -26,7 +26,7 @@ int pVendidas = 0;
 int recebePass1 = 0, recebePass2 = 0, recebePass3 = 0, recebePass4 = 0, recebePass5 = 0, recebePass6 = 0, recebePass7 = 0, recebePass8 = 0, recebePass9 = 0, recebePass10 = 0;
 int vagao11 = 45, vagao12 = 45, vagao13 = 45, vagao14 = 45, vagao15 = 45, vagao16 = 45, vagao17 = 45, vagao18 = 45, vagao19 = 45, vagao20 = 45;
 int trocoEconomica = 0, trocoExecutiva = 0, saque, resposta, troco, classeEconomica = 0, classeExecutiva = 0, passagem = 0, passagem2 = 0;
-float  classeEconomicaCartao = 0, classeExecutivaCartao = 0, receberDinheiro, trocoCliente = 0, trocoCliente2;
+float  classeEconomicaCartao = 0, classeExecutivaCartao = 0, receberDinheiro, trocoCliente = 0, trocoCliente2,cE = 0, cE2 = 0;
 
 void cadastroTrem();
 void assentosDisponiveis();
@@ -138,7 +138,7 @@ void passagensVendidas() {
 	gotoxy(7, 44); printf("%i", pass6 + pass7 + pass8 + pass9 + pass10);
 
 	printf("\n\n\n");
-	system("pause");
+	gotoxy(12, 9); system("pause");
 }
 
 void cadastroTrem() {
@@ -227,7 +227,7 @@ void cadastroTrem() {
 		}
 
 		if (op3 > 45 || pass2 > 45) {
-			printf("\n\n\t\t"); cor(12); printf("Vag%co 3 da Classe Executiva:", 198);
+			printf("\n\n\t\t"); cor(12); printf("Vag%co 3 da Classe Executiva:", 198); 
 			for (i = pass2; i < op2; i++) {
 				if (pass3 == 45 || pass3 > 45)
 					break;
@@ -572,40 +572,6 @@ void tabelaAssentosDisponiveis() {
 	gotoxy(25, 29); printf("%c", 193);	// T para cima
 }
 
-void tabelaPassagensVendidas() {
-	cabecalho();
-	int j = 0;
-
-	gotoxy(4, 1); printf("%c", 218);		// Canto superior esquerdo da tabela de dados
-	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
-	}
-	printf("%c", 191);					// Canto superior direito da tabela de dados
-
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 5)
-	gotoxy(5, 60); printf("%c", 179);
-
-	gotoxy(7, 31); printf("%c", 179);
-	gotoxy(7, 60); printf("%c", 179);
-
-	gotoxy(6, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
-	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
-	}
-	gotoxy(6, 31); printf("%c", 194);	// T para baixo
-	gotoxy(6, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
-
-	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 7)
-
-	printf("\n%c", 192); 				// Canto inferior esquerdo da tabela de dados
-	for (j = 0; j < 58; j++) {
-		printf("%c", 196);				// Traço horizontal da tabela de dados
-	}
-	printf("%c", 217); 					// Canto inferior direito da tabela de dados
-
-	gotoxy(8, 31); printf("%c", 193);	// T para cima
-}
-
 void tabelaComprar() {
 	cabecalho();
 	int j = 0, i = 0;
@@ -807,4 +773,69 @@ void sistemaTroco()
 		trocoCliente2 = receberDinheiro - classeExecutiva;
 		cor(192); gotoxy(16, 38); printf("Troco = %.2f\n", trocoCliente2);
 	}
+	cE += classeEconomica + classeEconomicaCartao;
+	cE2 += classeExecutiva + classeExecutivaCartao;
+}
+
+void tabelaPassagensVendidas() {
+	cabecalho();
+	int j = 0, i = 0;
+
+	gotoxy(4, 1); printf("%c", 218);		// Canto superior esquerdo da tabela de dados
+	for (j = 0; j < 58; j++) {
+		printf("%c", 196);				// Traço horizontal da tabela de dados
+	}
+	printf("%c", 191);					// Canto superior direito da tabela de dados
+
+	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 5)
+	gotoxy(5, 60); printf("%c", 179);
+
+	gotoxy(7, 31); printf("%c", 179);
+	gotoxy(7, 60); printf("%c", 179);
+
+	gotoxy(6, 1); printf("%c", 195); 	// Traço vertical esquerdo com linha no meio
+	for (j = 0; j < 58; j++) {
+		printf("%c", 196);				// Traço horizontal da tabela de dados
+	}
+	gotoxy(6, 31); printf("%c", 194);	// T para baixo
+	gotoxy(6, 60); printf("%c", 180);	// Traço vertical direito com linha no meio
+
+	printf("\n%c", 179);				// Traço vertical esquerdo da tabela de dados (linha 7)
+
+	printf("\n%c", 192); 				// Canto inferior esquerdo da tabela de dados
+	for (j = 0; j < 28; j++) {
+		gotoxy(8, i); printf("%c", 196);				// Traço horizontal da tabela de dados
+	}
+	for (j = 32; j < 62; j++) {
+		gotoxy(8, i); printf("%c", 196);				// Traço horizontal da tabela de dados
+	}
+	//printf("%c", 217); 					// Canto inferior direito da tabela de dados
+
+	gotoxy(8, 31); printf("%c", 193);	// T para cima
+
+
+	gotoxy(9, 1); printf("%c", 179);
+	gotoxy(10, 1); printf("%c", 179);
+	gotoxy(9, 60); printf("%c", 179);
+	gotoxy(10, 60); printf("%c", 179);
+	gotoxy(9, 31); printf("%c", 179);
+	gotoxy(10, 31); printf("%c", 179);
+	gotoxy(8, 1); printf("%c", 195);
+	gotoxy(8, 60); printf("%c", 180);
+	gotoxy(8, 31); printf("%c", 197);
+	gotoxy(11, 31); printf("%c", 193);
+	gotoxy(11, 1); printf("%c", 192);
+	gotoxy(11, 60); printf("%c", 217);
+	for (i = 2; i < 31; i++)
+	{
+		gotoxy(11, i); printf("%c", 196);
+	}
+	for (i = 32; i < 60; i++)
+	{
+		gotoxy(11, i); printf("%c", 196);
+	}
+	cor(192); gotoxy(9, 8); printf("Vendas Executivas");
+	cor(15); gotoxy(10, 9); printf("R$ = %.2f", cE2);
+	cor(192); gotoxy(9, 38); printf("Vendas Econ%cmicas",147);
+	cor(15); gotoxy(10, 39); printf("R$ = %.2f", cE);
 }
