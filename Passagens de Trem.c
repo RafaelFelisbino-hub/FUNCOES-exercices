@@ -16,17 +16,18 @@ Criar uma interface amigável, utilize todos os recursos aprendidos até hoje na
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
+#include <conio.h>
 
-char passageiros[200];
-int op, i, passagem1[45];
+char passageiros[200][200],pesquisaNome[200];
+int op, i,j, passagem1[450],passagemFuncao[450];
 int vagao1 = 45, vagao2 = 45, vagao3 = 45, vagao4 = 45, op1 = 0, op2 = 0, op3 = 0, pass1 = 0, pass2 = 0, pass3 = 0, pass4 = 0, op4 = 0;
 int vagao5 = 45, pass5 = 0, vagao6 = 45, pass6 = 0, vagao7 = 45, pass7 = 0;
 int vagao8 = 45, pass8 = 0, vagao9 = 45, pass9 = 0, vagao10 = 45, pass10 = 0;
-int pVendidas = 0;
+int pVendidas = 0, inicial = 0,compraEconomica[450], compraExecutiva[450],numeroPassagem[450], inicio = 0;
 int recebePass1 = 0, recebePass2 = 0, recebePass3 = 0, recebePass4 = 0, recebePass5 = 0, recebePass6 = 0, recebePass7 = 0, recebePass8 = 0, recebePass9 = 0, recebePass10 = 0;
 int vagao11 = 45, vagao12 = 45, vagao13 = 45, vagao14 = 45, vagao15 = 45, vagao16 = 45, vagao17 = 45, vagao18 = 45, vagao19 = 45, vagao20 = 45;
-int trocoEconomica = 0, trocoExecutiva = 0, saque, resposta, troco, classeEconomica = 0, classeExecutiva = 0, passagem = 0, passagem2 = 0;
-float  classeEconomicaCartao = 0, classeExecutivaCartao = 0, receberDinheiro, trocoCliente = 0, trocoCliente2,cE = 0, cE2 = 0;
+int trocoEconomica = 0, trocoExecutiva = 0, saque, resposta[450],respostaFuncao[450], troco, classeEconomica = 0, classeExecutiva = 0, passagem = 0, passagem2 = 0;
+float  classeEconomicaCartao = 0, classeExecutivaCartao = 0, receberDinheiro, trocoCliente = 0, trocoCliente2, cE = 0, cE2 = 0;
 
 void cadastroTrem();
 void assentosDisponiveis();
@@ -41,6 +42,8 @@ void cor(int cor_letra);
 void gotoxy(int x, int y);
 void LayoutTremzim();
 void sistemaTroco();
+void consultaNumeroPassagem();
+void layoutConsultaPassageiro();
 
 int main() {
 	int sw;
@@ -52,7 +55,8 @@ int main() {
 		gotoxy(5, 9); cor(15); printf("1"); cor(12); printf(" ................. "); cor(15); printf("Comprar passagem");
 		gotoxy(6, 9); printf("2"); cor(12); printf(" ................. "); cor(15); printf("Consultar passagens vendidas");
 		gotoxy(7, 9); printf("3"); cor(12); printf(" ................. "); cor(15); printf("Consultar assentos dispon%cveis", 161);
-		gotoxy(8, 9); printf("4"); cor(12); printf(" ................. "); cor(15); printf("Sair");
+		gotoxy(8, 9); printf("4"); cor(12); printf(" ................. "); cor(15); printf("Consultar clientes");
+		gotoxy(12, 26); printf("5"); cor(12); printf("...."); cor(15); printf("Sair");
 		gotoxy(10, 10); printf("Escolha um n%cmero de acordo com a op%c%co: ", 163, 135, 198);
 		cor(192); scanf_s("%i", &sw); cor(15);
 
@@ -71,10 +75,15 @@ int main() {
 			assentosDisponiveis();
 			system("cls");
 			break;
+		case 4:
+			consultaNumeroPassagem();
+			system("cls");
+			break;
 		}
-	} while (sw != 4);
+	} while (sw != 5);
 
 	printf("\n\n");
+	system("pause");
 }
 
 void assentosDisponiveis() {
@@ -143,34 +152,43 @@ void passagensVendidas() {
 
 void cadastroTrem() {
 
-	tabelaComprar();
+	for (i = inicial; i < inicial+1; i++) 
+	{
+		tabelaComprar();
 
-	cor(192);
-	gotoxy(5, 3); printf(" Nome ");
-	gotoxy(7, 3); printf(" Quantas passagens deseja comprar? ");
+		numeroPassagem[i] = rand() % 450;
+		cor(15); gotoxy(5, 43); printf("N%c passagem = %d", 167,numeroPassagem[i]);
 
-	gotoxy(9, 4); printf(" Classe Executiva "); cor(15); printf(" 1 a 5 "); cor(192);
-	gotoxy(9, 33); printf(" Classe Econ%cmica ", 147); cor(15); printf(" 6 a 10 ");
-	gotoxy(10, 10); cor(12); printf("Escolha a classe a partir dos n%cmeros: ", 163);
-	gotoxy(12, 2); cor(192); printf("Econ%cmica(3) = R$ 35,00 . Executiva(4) R$ 58,00:", 147);
+		cor(192);
+		gotoxy(5, 3); printf(" Nome ");
+		gotoxy(7, 3); printf(" Quantas passagens deseja comprar? ");
 
-	gotoxy(14, 2); cor(192); printf("Dinheiro (1) . Cart%co (2):", 198);
+		gotoxy(9, 4); printf(" Classe Executiva "); cor(15); printf(" 1 a 5 "); cor(192);
+		gotoxy(9, 33); printf(" Classe Econ%cmica ", 147); cor(15); printf(" 6 a 10 ");
+		gotoxy(10, 10); cor(12); printf("Escolha a classe a partir dos n%cmeros: ", 163);
+		gotoxy(12, 2); cor(192); printf("Econ%cmica(3) = R$ 35,00 . Executiva(4) R$ 58,00:", 147);
 
-	cor(15); gotoxy(12, 51); scanf_s("%i", &resposta);
-	cor(15); gotoxy(14, 29); scanf_s("%i", &troco);
-	gotoxy(5, 10); cor(15); scanf_s(" %[^\n]s", &passageiros, 200); getchar();
-	gotoxy(7, 39); scanf_s(" %i", &passagem1);
-	gotoxy(10, 49); scanf_s(" %i", &op);
+		gotoxy(14, 2); cor(192); printf("Dinheiro (1) . Cart%co (2):", 198);
+
+		cor(15); gotoxy(12, 51); scanf_s("%i", &resposta[0]);
+		cor(15); gotoxy(14, 29); scanf_s("%i", &troco);
+		gotoxy(5, 10); cor(15); scanf_s(" %[^\n]s", &passageiros[i], 200); getchar();
+		gotoxy(7, 39); scanf_s(" %i", &passagem1[0]);
+		gotoxy(10, 49); scanf_s(" %i", &op);
+		passagemFuncao[i] = passagem1[0];
+		respostaFuncao[i] = resposta[0];
+	}
+	inicial++;
 
 	passagem = passagem1[0];
 	passagem2 = passagem1[0];
 
-	if (resposta == 3)
+	if (resposta[0] == 3)
 	{
 		passagem *= 35;
 		cor(192);  gotoxy(14, 38); printf("Total = %i reais", passagem);
 	}
-	if (resposta == 4)
+	if (resposta[0] == 4)
 	{
 		passagem2 *= 58;
 		cor(192); gotoxy(14, 38); printf("Total = %i reais", passagem2);
@@ -227,7 +245,7 @@ void cadastroTrem() {
 		}
 
 		if (op3 > 45 || pass2 > 45) {
-			printf("\n\n\t\t"); cor(12); printf("Vag%co 3 da Classe Executiva:", 198); 
+			printf("\n\n\t\t"); cor(12); printf("Vag%co 3 da Classe Executiva:", 198);
 			for (i = pass2; i < op2; i++) {
 				if (pass3 == 45 || pass3 > 45)
 					break;
@@ -683,6 +701,17 @@ void tabelaMenu() {
 	}
 	printf("%c", 217); 					// Canto inferior direito da tabela de dados
 
+	gotoxy(11, 25); printf("%c", 194);
+	gotoxy(11, 35); printf("%c", 194);
+	gotoxy(12, 25); printf("%c", 179);
+	gotoxy(12, 35); printf("%c", 179);
+	gotoxy(13, 25); printf("%c", 192);
+	gotoxy(13, 35); printf("%c", 217);
+	for (i = 26; i < 35; i++)
+	{
+		gotoxy(13, i); printf("%c", 196);
+	}
+
 	//LayoutTremzim();
 }
 
@@ -738,11 +767,12 @@ void sistemaTroco()
 		{
 			if (pass6 || pass7 || pass8 || pass9 || pass10)
 				classeEconomica += 35;
+
 			if (pass1 || pass2 || pass3 || pass4 || pass5)
 				classeExecutiva += 58;
 		}
 	}
-	if (troco == 2 && resposta == 3)
+	if (troco == 2 && resposta[0] == 3)
 	{
 		for (i = 0; i < op3; i++)
 		{
@@ -753,7 +783,7 @@ void sistemaTroco()
 		cor(192); gotoxy(16, 38); printf("Descontado = %.2f\n", classeEconomicaCartao);
 	}
 
-	if (troco == 2 && resposta == 4)
+	if (troco == 2 && resposta[0] == 4)
 	{
 		for (i = 0; i < op3; i++)
 		{
@@ -763,12 +793,12 @@ void sistemaTroco()
 		cor(192); gotoxy(16, 38); printf("Descontado = %.2f\n", classeExecutivaCartao);
 	}
 
-	if (troco == 1 && resposta == 3)
+	if (troco == 1 && resposta[0] == 3)
 	{
 		trocoCliente = receberDinheiro - classeEconomica;
 		cor(192); gotoxy(16, 38);  printf("Troco = %.2f\n", trocoCliente);
 	}
-	if (troco == 1 && resposta == 4)
+	if (troco == 1 && resposta[0] == 4)
 	{
 		trocoCliente2 = receberDinheiro - classeExecutiva;
 		cor(192); gotoxy(16, 38); printf("Troco = %.2f\n", trocoCliente2);
@@ -813,7 +843,6 @@ void tabelaPassagensVendidas() {
 
 	gotoxy(8, 31); printf("%c", 193);	// T para cima
 
-
 	gotoxy(9, 1); printf("%c", 179);
 	gotoxy(10, 1); printf("%c", 179);
 	gotoxy(9, 60); printf("%c", 179);
@@ -836,6 +865,74 @@ void tabelaPassagensVendidas() {
 	}
 	cor(192); gotoxy(9, 8); printf("Vendas Executivas");
 	cor(15); gotoxy(10, 9); printf("R$ = %.2f", cE2);
-	cor(192); gotoxy(9, 38); printf("Vendas Econ%cmicas",147);
+	cor(192); gotoxy(9, 38); printf("Vendas Econ%cmicas", 147);
 	cor(15); gotoxy(10, 39); printf("R$ = %.2f", cE);
+}
+
+void consultaNumeroPassagem()
+{
+	int  x = 0, inicio2 = 0;
+	inicio = 0;
+	for (i = 0; i < inicial; i++)
+	{
+		layoutConsultaPassageiro();
+		cor(15); gotoxy(5 + inicio, 10); printf("Nome: %s\n", passageiros[i]);
+		gotoxy(5+inicio, 30); printf("Comprou %i passagens", passagemFuncao[i]);
+		gotoxy(5 + inicio, 54); printf("N%c passagem = %i", 167, numeroPassagem[i]);
+		if (respostaFuncao[i] == 3) 
+		{
+			gotoxy(5 + inicio, 75); printf("Classe economica");
+		}
+		else
+		{
+			gotoxy(5 + inicio, 75); printf("Classe executiva");
+		}
+		inicio += 3;
+	}
+
+	/*cor(15);  gotoxy(1, 4); printf("Digite o nome para pesquisar: ");
+	gotoxy(1, 33); scanf_s("%s", &pesquisaNome, 200);
+
+	system("cls");
+	cor(15);
+	for (i = 0; i < op3; i++)
+	{
+		x = strcmp(pesquisaNome, passageiros[i]);
+		if (x == 0)
+		{
+			gotoxy(5, 7); printf("Comprou %i passagens", passagemFuncao[i]);
+		}
+	}*/
+
+	cor(192); gotoxy(1, 29); system("pause");
+	system("cls");
+}
+
+void layoutConsultaPassageiro() 
+{
+	int i;
+	cor(12);
+	gotoxy(4 + inicio, 7); printf("%c", 218);
+	for (i = 8; i <= 94; i++)
+	{
+		gotoxy(4 + inicio, i); printf("%c", 196);
+	}
+	gotoxy(4 + inicio, 95); printf("%c", 191);
+	gotoxy(5 + inicio, 7); printf("%c", 179);
+	gotoxy(5 + inicio, 95); printf("%c", 179);
+	gotoxy(6 + inicio, 7); printf("%c", 192);
+	gotoxy(6 + inicio, 95); printf("%c", 217);
+	for (i = 8; i <= 94; i++)
+	{
+		gotoxy(6+inicio, i); printf("%c", 196);
+	}
+	gotoxy(4 + inicio, 29); printf("%c", 194);
+	gotoxy(4 + inicio, 51); printf("%c", 194);
+	gotoxy(4 + inicio, 72); printf("%c", 194);
+	gotoxy(6 + inicio, 29); printf("%c", 193);
+	gotoxy(6 + inicio, 51); printf("%c", 193);
+	gotoxy(6 + inicio, 72); printf("%c", 193);
+	gotoxy(5 + inicio, 29); printf("%c", 179);
+	gotoxy(5 + inicio, 51); printf("%c", 179);
+	gotoxy(5 + inicio, 72); printf("%c", 179);
 }
