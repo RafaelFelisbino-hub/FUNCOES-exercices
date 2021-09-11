@@ -15,7 +15,7 @@ int main(){
 
     ocorrencias(palavra,letra);
 
-    printf("Palavra removida: %c\nNova palavra = %s",letra, palavra);
+    printf("Letra removida: %c\nNova palavra = %s",letra, palavra);
 
     return 0;
 }
